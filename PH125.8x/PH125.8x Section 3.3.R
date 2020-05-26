@@ -12,6 +12,6 @@ dat1 <- as.matrix(dat[dat > 50 & dat < 205])
 
 
 elements_dat <- ncol(dat) * nrow(dat)
-elements_dat1 <- nrow(dat1)
+elements_dat1 <- ncol(dat1) * nrow(dat1)
 
 elements_dat1/elements_dat
