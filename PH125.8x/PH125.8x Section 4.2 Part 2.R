@@ -55,17 +55,11 @@ for (i in seq(01, 10, 1)) {
   da <- ba[[i]]
   yaa <- ya[da]
   qa <- c(qa, quantile(yaa, 0.75))
+  qa <- qa[!is.na(qa)]
 }
-qa <- qa[-1]
 
-ma <- NA
-for (i in seq(01, 10, 1)) {
-  ma <- c(ma, qa[[i]])
-}
-ma <- ma[-1]
-
-mean(ma)
-sd(ma)
+mean(qa)
+sd(qa)
 
 #05
 
@@ -79,14 +73,7 @@ for (i in seq(01, 10000, 1)) {
   df <- bf[[i]]
   yf <- yff[df]
   qf <- c(qf, quantile(yf, 0.75))
+  qf <- qf[!is.na(qf)]
 }
-qf <- qf[-1]
-
-mf <- NA
-for (i in seq(01, 10000, 1)) {
-  mf <- c(mf, qf[[i]])
-}
-mf <- mf[-1]
-
-mean(mf)
-sd(mf)
+mean(qf)
+sd(qf)
