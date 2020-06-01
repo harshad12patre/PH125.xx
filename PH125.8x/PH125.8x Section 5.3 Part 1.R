@@ -12,13 +12,13 @@ titanic_clean <- titanic_train %>%
          FamilySize = SibSp + Parch + 1) %>%
            select(Survived,  Sex, Pclass, Age, Fare, SibSp, Parch, FamilySize, Embarked)
 
-#01
-
 suppressWarnings(set.seed(42, sample.kind = "Rounding"))
 
 testindex <- createDataPartition(titanic_clean$Survived, times = 1, p = 0.2, list = FALSE)
 test_set <- titanic_clean[testindex,]
 train_set <- titanic_clean[-testindex,]
+
+#01
 
 nrow(train_set)
 nrow(test_set)
