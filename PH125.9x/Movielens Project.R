@@ -3,9 +3,6 @@ library(caret)
 library(tidyverse)
 library(data.table)
 
-edx <- readRDS("~/r-projects/PH125.xx/PH125.9x/edx.rds")
-validation <- readRDS("~/r-projects/PH125.xx/PH125.9x/validation.rds")
-
 # partitioning edx set into separate training and testing sets
 
 testindex <- createDataPartition(edx$rating, times = 1, p = 0.2, list = FALSE)
