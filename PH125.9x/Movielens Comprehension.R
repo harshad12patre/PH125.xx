@@ -21,10 +21,10 @@ length(unique(edx$userId))
 
 #05
 
-nrow(filter(edx, genres %like% "%Drama%"))
-nrow(filter(edx, genres %like% "%Comedy%"))
-nrow(filter(edx, genres %like% "%Thriller%"))
-nrow(filter(edx, genres %like% "%Romance%"))
+edx %>% filter(genres %like% "Drama") %>% summarize(n())
+edx %>% filter(genres %like% "Comedy") %>% summarize(n())
+edx %>% filter(genres %like% "Thriller") %>% summarize(n())
+edx %>% filter(genres %like% "Romance") %>% summarize(n())
 
 #06
 
