@@ -3,6 +3,9 @@ library(caret)
 library(tidyverse)
 library(data.table)
 
+edx <- readRDS("D:/r-projects/edx.rds")
+validation <- readRDS("D:/r-projects/validation.rds")
+
 # partitioning edx set into separate training and testing sets
 
 testindex <- createDataPartition(edx$rating, times = 1, p = 0.2, list = FALSE)
@@ -36,7 +39,7 @@ rmse_movie <- RMSE(pred_bi, edx_test$rating)
 
 # add to rmse results
 
-rmse_results <- bind_rows(rmse_results_edx, data_frame(method="Movie Effect Model (edx_test)", RMSE = rmse_movie ))
+rmse_results <- bind_rows(rmse_results, data_frame(method="Movie Effect Model (edx_test)", RMSE = rmse_movie ))
 
 # calculating rmse of movie and user model on edx_test set
 
@@ -55,7 +58,7 @@ rmse_user <- RMSE(pred_bu, edx_test$rating)
 
 # add to rmse results
 
-rmse_results <- bind_rows(rmse_results_edx, data_frame(method="User + Movie Effect Model (edx_test)", RMSE = rmse_user ))
+rmse_results <- bind_rows(rmse_results, data_frame(method="User + Movie Effect Model (edx_test)", RMSE = rmse_user ))
 
 # calculating rmse of regularized movie and user model on edx_test set
 
@@ -86,7 +89,7 @@ lambda
 
 # add to rmse results
 
-rmse_results <- bind_rows(rmse_results_edx, data_frame(method="Regularized Movie + User Effect Model (edx_test)", RMSE = min(rmses)))
+rmse_results <- bind_rows(rmse_results, data_frame(method="Regularized Movie + User Effect Model (edx_test)", RMSE = min(rmses)))
 
 # calculating rmse of regularized movie and user model on validation set
 

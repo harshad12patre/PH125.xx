@@ -1,6 +1,9 @@
 library(tidyverse)
 library(DescTools)
 
+edx <- readRDS("D:/r-projects/edx.rds")
+validation <- readRDS("D:/r-projects/validation.rds")
+
 #01
 
 nrow(edx)
